@@ -4,6 +4,7 @@ package com.fiap.twinttler.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fiap.twinttler.Entities.Debt;
 import com.fiap.twinttler.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
-import java.util.Locale;
 
 public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
 
-    private List<Debt> debts;
+    private final List<Debt> debts;
 
     public DebtAdapter(List<Debt> debts) {
         this.debts = debts;
@@ -33,8 +34,20 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Debt debt = debts.get(position);
-        holder.titleTextView.setText(debt.getTitle());
-        holder.amountTextView.setText(String.format(Locale.getDefault(), "R$ %.2f", debt.getAmount()));
+        holder.textTitle.setText(debt.getTitle());
+        holder.textAmount.setText(String.format("R$ %.2f", debt.getAmount()));
+
+        holder.btnDelete.setOnClickListener(v -> {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("debits")
+                    .document(debt.getId())
+                    .delete()
+                    .addOnSuccessListener(aVoid -> {
+                        debts.remove(position);
+                        notifyItemRemoved(position);
+                        notifyItemRangeChanged(position, debts.size());
+                    });
+        });
     }
 
     @Override
@@ -42,14 +55,18 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.ViewHolder> {
         return debts.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView;
-        TextView amountTextView;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        private final TextView textTitle;
+        private final TextView textAmount;
+        private final Button btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.debtTitleTextView);
-            amountTextView = itemView.findViewById(R.id.debtAmountTextView);
+
+            textTitle = itemView.findViewById(R.id.debtTitleTextView);
+            textAmount = itemView.findViewById(R.id.debtAmountTextView);
+            btnDelete = itemView.findViewById(R.id.buttonDelete);
         }
     }
 }

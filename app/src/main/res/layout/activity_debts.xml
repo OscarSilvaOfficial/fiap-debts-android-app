@@ -4,10 +4,27 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/button_add_debit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Conta"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/debtsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,5 +35,17 @@
         android:id="@+id/recycler_view_debits"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+<!--    <Button-->
+<!--        android:id="@+id/button_add_debit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Adicionar Conta"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:layout_marginBottom="1dp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

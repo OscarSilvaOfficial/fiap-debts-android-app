@@ -1,8 +1,11 @@
 package com.fiap.twinttler;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,29 +34,51 @@ public class DebtsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debts);
 
+        Button addDebitButton = findViewById(R.id.button_add_debit);
+        addDebitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DebtsActivity.this, AddDebtActivity.class);
+                startActivity(intent);
+            }
+        });
+
         db = FirebaseFirestore.getInstance();
+
+        loadDebts();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadDebts();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void loadDebts() {
         db.collection("debits")
             .get()
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {
+                        debts.clear();
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Map<String, Object> data = document.getData();
                             String title = (String) data.get("title");
                             String amount = (String) data.get("value");
-                            debts.add(new Debt(title, Double.parseDouble(amount)));
+                            debts.add(new Debt(document.getId(), title, Double.parseDouble(amount)));
                         }
 
                         RecyclerView recyclerViewDebits = findViewById(R.id.debtsRecyclerView);
                         DebtAdapter adapter = new DebtAdapter(debts);
                         recyclerViewDebits.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
                     } else {
                         Log.e("DebitsActivity", "Error getting documents: ", task.getException());
                     }
                 }
             })
-            .addOnFailureListener(e -> Toast.makeText(DebtsActivity.this, "Erro ao obter a lista de débitos", Toast.LENGTH_SHORT).show());;
+            .addOnFailureListener(e -> Toast.makeText(DebtsActivity.this, "Erro ao obter a lista de débitos", Toast.LENGTH_SHORT).show());
     }
 }

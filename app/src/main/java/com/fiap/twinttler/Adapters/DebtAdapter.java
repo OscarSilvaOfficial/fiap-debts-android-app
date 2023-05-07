@@ -1,4 +1,4 @@
-package com.fiap.twinttler;
+package com.fiap.twinttler.Adapters;
 
 
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fiap.twinttler.Entities.Debt;
+import com.fiap.twinttler.R;
 
 import java.util.List;
 import java.util.Locale;

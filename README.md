@@ -35,4 +35,15 @@ obs: Lembre-se de que o aplicativo depende do serviço Firebase Firestore e requ
 
 Isso iniciará a execução do teste selecionado e os resultados serão exibidos na janela de "Run" do Android Studio. 
 Certifique-se de que o dispositivo de destino selecionado seja "Local JUnit Test". 
-Você também pode executar todos os testes unitários ao mesmo tempo, clicando com o botão direito na pasta "com.fiap.twinttler" e selecionando "Run 'Tests in 'com.fiap.twinttler''".
+Você também pode executar todos os testes unitários ao mesmo tempo, clicando com o botão direito na pasta "com.fiap.twinttler" e selecionando "Run 'Tests in 'com.fiap.twinttler.
+
+## Simulação da Sprint usando Kanban
+
+## Kanban - Funcionalidades da Sprint
+
+| A Fazer | Em Progresso | Feito |
+| --- | --- | --- |
+| Criar tela de login | Implementar autenticação com Firebase | Autenticação concluída |
+| Criar tela principal com lista de contas | Implementar adição de contas | Adição de contas concluída |
+| Criar tela de adição de conta | Implementar exclusão de contas | Exclusão de contas concluída |
+| Configurar conexão com o Firebase Firestore | Implementar testes unitários | Testes unitários concluídos |

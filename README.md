@@ -11,12 +11,16 @@ O projeto é um aplicativo Android que permite que o usuário registre e gerenci
 - Permite que o usuário exclua dívidas existentes.
 - Exibe o valor total das dívidas registradas.
 
-### O projeto utiliza as seguintes tecnologias:
+## Simulação da Sprint usando Kanban
 
-- Android Studio: um ambiente de desenvolvimento integrado (IDE) para o desenvolvimento de aplicativos Android.
-- Firebase Firestore: um banco de dados NoSQL em tempo real e na nuvem.
-- Java: uma linguagem de programação de alto nível, orientada a objetos e amplamente usada para o desenvolvimento de aplicativos Android.
-- Para executar o projeto, é necessário ter o ambiente de desenvolvimento Java, o Android Studio e a biblioteca do Firebase Firestore instalados no computador. É possível executar o aplicativo em um emulador ou dispositivo físico.
+### Funcionalidades da Sprint
+
+| A Fazer | Em Progresso | Feito |
+| --- | --- | --- |
+| Criar tela de login | Implementar autenticação com Firebase | Autenticação concluída |
+| Criar tela principal com lista de contas | Implementar adição de contas | Adição de contas concluída |
+| Criar tela de adição de conta | Implementar exclusão de contas | Exclusão de contas concluída |
+| Configurar conexão com o Firebase Firestore | Implementar testes unitários | Testes unitários concluídos |
 
 ## Como rodar o projeto
 
@@ -37,13 +41,9 @@ Isso iniciará a execução do teste selecionado e os resultados serão exibidos
 Certifique-se de que o dispositivo de destino selecionado seja "Local JUnit Test". 
 Você também pode executar todos os testes unitários ao mesmo tempo, clicando com o botão direito na pasta "com.fiap.twinttler" e selecionando "Run 'Tests in 'com.fiap.twinttler.
 
-## Simulação da Sprint usando Kanban
+## Técnologias usadas:
 
-## Kanban - Funcionalidades da Sprint
-
-| A Fazer | Em Progresso | Feito |
-| --- | --- | --- |
-| Criar tela de login | Implementar autenticação com Firebase | Autenticação concluída |
-| Criar tela principal com lista de contas | Implementar adição de contas | Adição de contas concluída |
-| Criar tela de adição de conta | Implementar exclusão de contas | Exclusão de contas concluída |
-| Configurar conexão com o Firebase Firestore | Implementar testes unitários | Testes unitários concluídos |
+- Android Studio: um ambiente de desenvolvimento integrado (IDE) para o desenvolvimento de aplicativos Android.
+- Firebase Firestore: um banco de dados NoSQL em tempo real e na nuvem.
+- Java: uma linguagem de programação de alto nível, orientada a objetos e amplamente usada para o desenvolvimento de aplicativos Android.
+- Para executar o projeto, é necessário ter o ambiente de desenvolvimento Java, o Android Studio e a biblioteca do Firebase Firestore instalados no computador. É possível executar o aplicativo em um emulador ou dispositivo físico.

@@ -5,6 +5,7 @@ O projeto é um aplicativo Android que permite que o usuário registre e gerenci
 ## Usuário para teste
 
 e-mail: fiap.test@gmail.com
+
 senha: 123456
 
 ## Funcionalidades

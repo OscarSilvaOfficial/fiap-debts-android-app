@@ -2,12 +2,6 @@
 
 O projeto é um aplicativo Android que permite que o usuário registre e gerencie suas dívidas. O aplicativo utiliza o banco de dados NoSQL em tempo real e na nuvem do Firebase Firestore para armazenar e recuperar informações sobre as dívidas.
 
-## Usuário para teste
-
-e-mail: fiap.test@gmail.com
-
-senha: 123456
-
 ## Funcionalidades
 
 ### O aplicativo possui as seguintes funcionalidades:
